@@ -12,6 +12,6 @@ class Categoria extends Model
     //Relacion uno a muchos
 
     public function posts(){
-        return $this->hasMany(Post::class);
+        return $this->hasMany(Post::class, 'cat_id');
     }
 }

@@ -15,7 +15,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
     public function categoria(){
-        return $this->belongsTo(Categoria::class);
+        return $this->belongsTo(Categoria::class, 'cat_id');
     }
 
     //Relacion muchos a muchos

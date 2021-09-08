@@ -18,6 +18,7 @@ class PostController extends Controller
         // Mostrar post similares
         $similares = Post::where('cat_id', $post->cat_id)
                             ->where('post_status', 2) //Post activados
+                            ->where('id', '!=', $post->id)//No se repita el post
                             ->latest('id')            //Descendente
                             ->take(4)                 //Solo 4 post
                             ->get();                  
