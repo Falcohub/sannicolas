@@ -10,10 +10,10 @@
 
                         <div>
                             @foreach ($post->etiquetas as $etiqueta)
-                                <a href="" class="inline-block px-3 h-6 bg-{{$etiqueta->etq_color}}-600 text-white rounded-full">{{$etiqueta->etq_name}}</a>
+                                <a href="{{route('posts.etiqueta', $etiqueta)}}" class="inline-block px-3 h-6 bg-{{$etiqueta->etq_color}}-600 text-white rounded-full">{{$etiqueta->etq_name}}</a>
                             @endforeach
                         </div>
-                        <h1 class="text-4xl text-white leading-8 font-bold">
+                        <h1 class="text-4xl text-white leading-8 font-bold mt-2">
 
                             {{-- Redigir al post --}}
                             <a href="{{ route('posts.show', $post)}}">
