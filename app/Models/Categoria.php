@@ -9,6 +9,16 @@ class Categoria extends Model
 {
     use HasFactory;
 
+    // habilitar asignacion masiva
+
+    protected $fillable = ['cat_nombre', 'cat_slug'];
+
+    // Agregar slug a la url 
+    public function getRouteKeyName()
+    {
+        return "cat_slug";
+    }
+
     //Relacion uno a muchos
 
     public function posts(){
