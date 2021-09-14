@@ -252,7 +252,7 @@ return [
             'icon'        => 'fas fa-tachometer-alt fa-fw',
 
         ],
-        ['header' => 'administrador'],
+        ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorias',
             'route'  => 'admin.categorias.index',
@@ -267,59 +267,54 @@ return [
             //Permite que el item mantenga activo en todos los modulos del crudS
             'active' => ['admin/etiquetas*']
         ],
-        [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
+        /*  [
+                'text'    => 'multilevel',
+                'icon'    => 'fas fa-fw fa-share',
+                'submenu' => [
+                    [
+                        'text' => 'level_one',
+                        'url'  => '#',
+                    ],
+                    [
+                        'text'    => 'level_one',
+                        'url'     => '#',
+                        'submenu' => [
+                            [
+                                'text' => 'level_two',
+                                'url'  => '#',
+                            ],
+                            [
+                                'text'    => 'level_two',
+                                'url'     => '#',
+                                'submenu' => [
+                                    [
+                                        'text' => 'level_three',
+                                        'url'  => '#',
+                                    ],
+                                    [
+                                        'text' => 'level_three',
+                                        'url'  => '#',
+                                    ],
                                 ],
                             ],
                         ],
                     ],
+                    [
+                        'text' => 'level_one',
+                        'url'  => '#',
+                    ],
                 ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
+            ], */
+        ['header' => 'OPCIONES DE BLOG'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
+            'text'       => 'Lista de post',
+            'route'        => 'admin.posts.index',
+            'icon'       => 'fas fa-fw fa-clipboard'
         ],
         [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'       => 'Crear nuevo post',
+            'route'        => 'admin.posts.create',
+            'icon'       => 'fas fa-fw fa-file'
         ],
     ],
 
@@ -475,5 +470,5 @@ return [
     |
     */
 
-    'livewire' => false,
+    'livewire' => true,
 ];
