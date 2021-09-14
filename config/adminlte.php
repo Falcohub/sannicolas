@@ -85,7 +85,7 @@ return [
 
     'layout_topnav' => null,
     'layout_boxed' => null,
-    'layout_fixed_sidebar' => null,
+    'layout_fixed_sidebar' => true,
     'layout_fixed_navbar' => null,
     'layout_fixed_footer' => null,
     'layout_dark_mode' => null,
@@ -257,11 +257,15 @@ return [
             'text' => 'Categorias',
             'route'  => 'admin.categorias.index',
             'icon' => 'fab fa-fw fa-buffer',
+            //Permite que el item mantenga activo en todos los modulos del crud
+            'active' => ['admin/categorias*']
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text' => 'Etiquetas',
+            'route'  => 'admin.etiquetas.index',
+            'icon' => 'far fa-fw fa-bookmark',
+            //Permite que el item mantenga activo en todos los modulos del crudS
+            'active' => ['admin/etiquetas*']
         ],
         [
             'text'    => 'multilevel',

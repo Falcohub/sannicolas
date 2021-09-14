@@ -49,7 +49,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::create($request->all());
 
         // redireccionar a la vista editar y mostrar mensaje de categoria agregada
-        return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'La categoria se creo con exitó');;
+        return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'La categoria se creo con éxito');;
     }
 
     /**
@@ -93,7 +93,7 @@ class CategoriaController extends Controller
         $categoria->update($request->all());
 
         //redireccionar y enviar mensaje de actualizacion
-        return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'La categoria se actualizó con exitó');
+        return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'La categoria se actualizó con éxito');
     }
 
     /**
@@ -108,6 +108,6 @@ class CategoriaController extends Controller
         $categoria->delete();
 
         // redireccionar a lista de categoria
-        return redirect()->route('admin.categorias.index')->with('info', 'La categoria se eliminó con exitó');;
+        return redirect()->route('admin.categorias.index')->with('info', 'La categoria se eliminó con éxito');;
     }
 }
