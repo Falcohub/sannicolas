@@ -13,22 +13,43 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
 
+            {{-- ID oculto de usuario actualmente autentificado --}}
+            {!! Form::hidden('user_id', auth()->user()->id) !!}
+
             {{-- Nombre del post --}}
             <div class="form-group">
                 {!! Form::label('post_name', 'Nombre:') !!}
                 {!! Form::text('post_name', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el nombre de la publicación']) !!}
+            
+                {{-- error de validacion --}}
+                @error('post_name')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+
             </div>
 
             {{-- Slug del post --}}
             <div class="form-group">
-                {!! Form::label('post_slug', 'slug:') !!}
+                {!! Form::label('post_slug', 'Slug:') !!}
                 {!! Form::text('post_slug', null, ['class' => 'form-control', 'placeholder' => 'Ingrese el slug de la publicación', 'readonly']) !!}
+
+                {{-- error de validacion --}}
+                @error('post_slug')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+                
             </div>
 
-            {{-- Campo categorias obtenidas por un select  --}}
+            {{-- Campo categorias --}}
             <div class="form-group">
                 {!! Form::label('cat_id', 'Categoría')!!}
                 {!! Form::select('cat_id', $categorias, null, ['class' => 'form-control'])!!}
+
+                {{-- error de validacion --}}
+                @error('cat_id')
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+
             </div>
             
             {{-- Campo etiquetas --}}
@@ -39,9 +60,16 @@
 
                     <label class="mr-2">
                         {!! Form::checkbox('etiquetas[]', $etiqueta->id, null) !!}
+                        {{$etiqueta->etq_name}}
                     </label>
-                    {{$etiqueta->etq_name}}
                 @endforeach
+
+                {{-- error de validacion --}}
+                @error('etiquetas')
+                    <br>
+                    <small class="text-danger">{{$message}}</small>
+                @enderror
+
             </div>
 
             {{-- Estado del post  --}}
@@ -57,18 +85,37 @@
                     {!! Form::radio('post_status', 2) !!}
                     Publicado
                 </label>
+
+                {{-- error de validacion --}}
+                <br>
+                @error('post_status')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
+
             </div>
 
             {{-- Campo extracto del post --}}
             <div class="form-group">
                 {!! Form::label('post_extract', 'Extracto:') !!}
                 {!! Form::textarea('post_extract', null, ['class' => 'form-control']) !!}
+
+                {{-- error de validacion --}}
+                @error('post_extract')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
+
             </div>
 
             {{-- Campo body del post --}}
             <div class="form-group">
                 {!! Form::label('post_body', 'Cuerpo de la publicación:') !!}
                 {!! Form::textarea('post_body', null, ['class' => 'form-control']) !!}
+
+                {{-- error de validacion --}}
+                @error('post_body')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
+
             </div>
             
             {{-- Boton crear post --}}

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Categoria;
 use App\Models\Etiqueta;
+use App\Http\Requests\StorePostRequest;
+
 class PostController extends Controller
 {
     /**
@@ -43,9 +45,22 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+
+    //Objeto de clase StorePostRequest para obtener las validaciones
+    public function store(StorePostRequest $request)
     {
-        //
+        //Agregar nuevo post
+        $post = Post::create($request->all());
+
+        // Preguntar si se esta enviando informacion de etiquetas
+        // accedemos al registro de post, accedemos a la relacion etiquetas
+        // En el metodo attach accedemos al array etiquetas 
+        // Agregar en  la tabla etiqueta_post las etiquetas seleccionadas
+        if ($request->etiquetas) {
+            $post->etiquetas()->attach($request->etiquetas);
+        }
+
+        return redirect()->route('admin.posts.edit', $post);
     }
 
     /**

@@ -9,6 +9,10 @@ class Post extends Model
 {
     use HasFactory;
 
+    // Asignacion masiva
+    // con la propiedad guarded evitamos los campos que se llenen por asignacion masiva
+    protected $guarded = ['id', 'created_at', 'updated_at'];
+
     //Relacion uno a muchos inversa
 
     public function user(){
