@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
-
+use App\Models\Categoria;
+use App\Models\Etiqueta;
 class PostController extends Controller
 {
     /**
@@ -26,8 +27,14 @@ class PostController extends Controller
      */
     public function create()
     {
+
+        // Recuperar las categorias y etiquetas
+        // Metodo pluck me va a generar un array pero solo va a tomar el valor del campo name de la categoria
+        $categorias = Categoria::pluck('cat_nombre', 'id');
+        $etiquetas = Etiqueta::all();
+
         //Crear de posts
-        return view('admin.posts.create');
+        return view('admin.posts.create', compact('categorias', 'etiquetas'));
     }
 
     /**
