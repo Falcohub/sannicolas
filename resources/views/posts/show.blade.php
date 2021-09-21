@@ -4,7 +4,7 @@
         <h1 class="text-4xl font-bold text-gray-600">{{$post->post_name}}</h1>
 
         <div class="text-lg text-gray-500 mb-2">
-            {{$post->post_extract}}
+            {!!$post->post_extract!!}
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -13,11 +13,17 @@
             <div class="lg:col-span-2">
 
                 <figure>
-                    <img class="w-full h-80 object-cover object-center" src="{{Storage::url($post->imagen->img_url)}}" alt="">
+
+                    @if ($post->imagen)
+                        <img class="w-full h-80 object-cover object-center" src="{{Storage::url($post->imagen->img_url)}}" alt="">
+                    @else
+                        <img class="w-full h-80 object-cover object-center" src="https://images.unsplash.com/photo-1631677210323-066f48f55d53?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="">
+                    @endif
+
                 </figure>
 
                 <div class="text-base text-gray-500 mt-4">
-                    {{$post->post_body}}
+                    {!! $post->post_body !!}
                 </div>
 
             </div>
@@ -29,7 +35,13 @@
                     @foreach ($similares as $similar)
                     <li class="mb-4">
                         <a class="flex" href="{{route('posts.show', $similar)}}">
-                            <img class="w-36 h-20 object-cover object-center" src="{{Storage::url($similar->imagen->img_url)}}" alt="">
+
+                            @if ($similar->imagen)
+                                <img class="w-36 h-20 object-cover object-center" src="{{Storage::url($similar->imagen->img_url)}}" alt="">
+                            @else
+                            <img class="w-36 h-20 object-cover object-center" src="https://images.unsplash.com/photo-1631677210323-066f48f55d53?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="">
+                            @endif
+
                             <span class="ml-2 text-gray-600">{{$similar->post_name}}</span>
                         </a>
                     </li>

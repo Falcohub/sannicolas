@@ -11,7 +11,7 @@
     {{-- Formulario para crear post --}}
     <div class="card">
         <div class="card-body">
-            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off']) !!}
+            {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true    ]) !!}
 
             {{-- ID oculto de usuario actualmente autentificado --}}
             {!! Form::hidden('user_id', auth()->user()->id) !!}
@@ -94,6 +94,29 @@
 
             </div>
 
+            {{-- Adjuntar imagen --}}
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="image-wrapper">
+                        <img id="picture" src="https://images.unsplash.com/photo-1631677210323-066f48f55d53?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="">
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+                        {!! Form::label('file', 'Imagen que se mostrará en el post') !!}
+                        {!! Form::file('file', ['class' => 'form-control-file', 'accept' => 'image/*']) !!}
+
+                        @error('file')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
+                    
+
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint magni non accusantium distinctio enim cupiditate. Quisquam atque ab, voluptates, quam voluptate, cum culpa praesentium corrupti commodi minus labore dolor dicta.</p>
+                </div>
+            </div>
+
             {{-- Campo extracto del post --}}
             <div class="form-group">
                 {!! Form::label('post_extract', 'Extracto:') !!}
@@ -127,7 +150,21 @@
 @stop
 
 @section('css')
-    <link rel="stylesheet" href="/css/admin_custom.css">
+
+    {{-- Estilos para la imagen --}}
+    <style>
+        .image-wrapper{
+            position: relative;
+            padding-bottom: 56.25%;
+        }
+
+        .image-wrapper img{
+            position: absolute;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 @stop
 
 @section('js')
@@ -162,6 +199,19 @@
             console.error( error );
     } );
 
+    // cambiar imagen
+    document.getElementById("file").addEventListener('change', cambiarImagen);
+
+        function cambiarImagen(event){
+            var file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = (event) => {
+                document.getElementById("picture").setAttribute('src', event.target.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
     </script>
 
 @endsection

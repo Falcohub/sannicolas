@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Categoria;
 use App\Models\Etiqueta;
+
+use Illuminate\Support\Facades\Storage;
+
 use App\Http\Requests\StorePostRequest;
 
 class PostController extends Controller
@@ -48,9 +51,18 @@ class PostController extends Controller
 
     //Objeto de clase StorePostRequest para obtener las validaciones
     public function store(StorePostRequest $request)
-    {
+    {        
         //Agregar nuevo post
         $post = Post::create($request->all());
+        
+        // mover la imagen de la carpeta temporal a la carpeta storage para que el navegador pueda acceder a ella
+        if ($request->file('file')) {
+            $url = Storage::put('public/posts', $request->file('file'));
+            
+            // Generar um muevo registro en la tabla image y relacionarlo
+            $post->imagen()->create(['img_url' => $url]
+        );
+        }
 
         // Preguntar si se esta enviando informacion de etiquetas
         // accedemos al registro de post, accedemos a la relacion etiquetas

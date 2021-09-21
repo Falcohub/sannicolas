@@ -34,6 +34,7 @@ class StorePostRequest extends FormRequest
             'post_name' => 'required',
             'post_slug' => 'required|unique:posts',
             'post_status' => 'required|in:1,2',
+            'file' => 'image'
         ];
 
         //Estado 2 o publicado
