@@ -10,7 +10,7 @@ use App\Models\Etiqueta;
 
 use Illuminate\Support\Facades\Storage;
 
-use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
@@ -50,7 +50,7 @@ class PostController extends Controller
      */
 
     //Objeto de clase StorePostRequest para obtener las validaciones
-    public function store(StorePostRequest $request)
+    public function store(PostRequest $request)
     {        
         //Agregar nuevo post
         $post = Post::create($request->all());
@@ -60,14 +60,12 @@ class PostController extends Controller
             $url = Storage::put('public/posts', $request->file('file'));
             
             // Generar um muevo registro en la tabla image y relacionarlo
-            $post->imagen()->create(['img_url' => $url]
-        );
+            $post->imagen()->create(['img_url' => $url]);
         }
 
         // Preguntar si se esta enviando informacion de etiquetas
         // accedemos al registro de post, accedemos a la relacion etiquetas
-        // En el metodo attach accedemos al array etiquetas 
-        // Agregar en  la tabla etiqueta_post las etiquetas seleccionadas
+        // En el metodo attach accedemos al array etiquetas, Agregar en  la tabla etiqueta_post las etiquetas seleccionadas
         if ($request->etiquetas) {
             $post->etiquetas()->attach($request->etiquetas);
         }
@@ -95,8 +93,13 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        /* Recuperar las categorias y etiquetas
+        Metodo pluck me va a generar un array pero solo va a tomar el valor del campo name de la categoria */
+        $categorias = Categoria::pluck('cat_nombre', 'id');
+        $etiquetas = Etiqueta::all();
+
         // Editar posts 
-        return view('admin.posts.edit', compact('post'));
+        return view('admin.posts.edit', compact('post', 'categorias', 'etiquetas'));
     }
 
     /**
@@ -106,9 +109,42 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        //
+        $post->update($request->all());
+
+        //Preguntar si esta enviando imagen en el campo file
+        if ($request->file('file')) {
+
+            // Subir imagen al servidor
+            $url = Storage::put('public/posts', $request->file('file'));
+
+            // Preguntar si el post ya contiene imagen
+            if ($post->imagen) {
+                
+                // Eliminar imagen del post 
+                Storage::delete($post->imagen->img_url);
+
+                // Actualizar imagen
+                $post->imagen->update([
+                    'img_url' => $url
+                ]);
+            }else{
+                // Si no existe imagen asociada, crea nuevo registro en tabla imagens 
+                $post->imagen()->create([
+                    'img_url' => $url
+                ]);
+            }
+        }
+
+        // Etiquetas 
+        if ($request->etiquetas) {
+
+            // Metodo sync sincronizar colección
+            $post->etiquetas()->sync($request->etiquetas);
+        }
+
+        return redirect()->route('admin.posts.edit', $post)->with('info', 'La publicación se actualizo con éxito');
     }
 
     /**
@@ -119,6 +155,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        //Eliminar etiqueta
+        $post->delete();
+
+        return redirect()->route('admin.posts.index')->with('info', 'La publicación se eliminó con éxito');
     }
 }
