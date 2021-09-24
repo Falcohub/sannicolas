@@ -13,9 +13,6 @@
         <div class="card-body">
             {!! Form::open(['route' => 'admin.posts.store', 'autocomplete' => 'off', 'files' => true]) !!}
 
-            {{-- ID oculto de usuario actualmente autentificado --}}
-            {!! Form::hidden('user_id', auth()->user()->id) !!}
-
             @include('admin.posts.partials.form')
             
             {{-- Boton crear post --}}
