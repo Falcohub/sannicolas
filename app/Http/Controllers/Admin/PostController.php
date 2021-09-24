@@ -93,6 +93,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        // Referencia policy
+        $this->authorize('author', $post);
+
         /* Recuperar las categorias y etiquetas
         Metodo pluck me va a generar un array pero solo va a tomar el valor del campo name de la categoria */
         $categorias = Categoria::pluck('cat_nombre', 'id');
@@ -111,6 +114,9 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
+        // Referencia policy
+        $this->authorize('author', $post);
+
         $post->update($request->all());
 
         //Preguntar si esta enviando imagen en el campo file
@@ -155,6 +161,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        // Referencia policy
+        $this->authorize('author', $post);
+
         //Eliminar etiqueta
         $post->delete();
 

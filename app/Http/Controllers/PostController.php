@@ -17,6 +17,9 @@ class PostController extends Controller
     //Retornar la vista del post
     public function show(Post $post){
 
+        // Referencia policy
+        $this->authorize('published', $post);
+
         // Mostrar post similares
         $similares = Post::where('cat_id', $post->cat_id)
                             ->where('post_status', 2) //Post activados
