@@ -250,28 +250,30 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
-
+            'can'        =>'admin.home'
         ],
         [
             'text'        => 'Usuarios',
             'route'         => 'admin.users.index',
             'icon'        => 'fas fa-users fa-fw',
-
+            'can'        =>'admin.users.index'
         ],
-        ['header' => 'ADMINISTRADOR'],
+        // ['header' => 'ADMINISTRADOR'],
         [
             'text' => 'Categorias',
             'route'  => 'admin.categorias.index',
             'icon' => 'fab fa-fw fa-buffer',
             //Permite que el item mantenga activo en todos los modulos del crud
-            'active' => ['admin/categorias*']
+            'active' => ['admin/categorias*'],
+            'can'    => 'admin.categorias.index'
         ],
         [
             'text' => 'Etiquetas',
             'route'  => 'admin.etiquetas.index',
             'icon' => 'far fa-fw fa-bookmark',
-            //Permite que el item mantenga activo en todos los modulos del crudS
-            'active' => ['admin/etiquetas*']
+            //Permite que el item mantenga activo en todos los modulos del crud
+            'active' => ['admin/etiquetas*'],
+            'can'    => 'admin.etiquetas.index'
         ],
         /*  [
                 'text'    => 'multilevel',
@@ -315,12 +317,14 @@ return [
         [
             'text'       => 'Lista de post',
             'route'        => 'admin.posts.index',
-            'icon'       => 'fas fa-fw fa-clipboard'
+            'icon'       => 'fas fa-fw fa-clipboard',
+            'can'    => 'admin.posts.index'
         ],
         [
             'text'       => 'Crear nuevo post',
             'route'        => 'admin.posts.create',
-            'icon'       => 'fas fa-fw fa-file'
+            'icon'       => 'fas fa-fw fa-file',
+            'can'    => 'admin.posts.index'
         ],
     ],
 

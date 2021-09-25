@@ -25,13 +25,13 @@ class RoleSeeder extends Seeder
 
         // Listado usuarios
         Permission::create(['name' => 'admin.users.index'])->syncRoles([$role1]);
-        // Crear usuarios
+        // Editar usuarios
         Permission::create(['name' => 'admin.users.edit'])->syncRoles([$role1]);
-        // Editar 
+        // Actualizar
         Permission::create(['name' => 'admin.users.update'])->syncRoles([$role1]);
 
         // Listado categorias
-        Permission::create(['name' => 'admin.categorias.index'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.categorias.index'])->syncRoles([$role1, $role2]);
         // Crear categorias
         Permission::create(['name' => 'admin.categorias.create'])->syncRoles([$role1]);
         // Editar categorias
@@ -40,7 +40,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'admin.categorias.destroy'])->syncRoles([$role1]);
 
         // Listado etiquetas
-        Permission::create(['name' => 'admin.etiquetas.index'])->syncRoles([$role1]);
+        Permission::create(['name' => 'admin.etiquetas.index'])->syncRoles([$role1, $role2]);
         // Crear etiquetas
         Permission::create(['name' => 'admin.etiquetas.create'])->syncRoles([$role1]);
         // Editar etiquetas

@@ -4,7 +4,9 @@
 
 @section('content_header')
 
+    @can('admin.etiquetas.create')
     <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.etiquetas.create')}}">Nueva etiqueta</a>
+    @endcan
 
     <h1>Mostral listado de etiquetas</h1>
 @stop
@@ -35,15 +37,19 @@
                             <td>{{$etiqueta->id}}</td>
                             <td>{{$etiqueta->etq_name}}</td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.etiquetas.edit', $etiqueta)}}">Editar</a>
+                                @can('admin.etiquetas.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.etiquetas.edit', $etiqueta)}}">Editar</a>    
+                                @endcan
                             </td>
                             <td width="10px">
-                                {{-- se debe crear form para el boton eliminar --}}
-                                <form action="{{route('admin.etiquetas.destroy', $etiqueta)}}" method="POST">
-                                @csrf
-                                @method('delete')
-
-                                <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                @can('admin.etiquetas.destroy')    
+                                    {{-- se debe crear form para el boton eliminar --}}
+                                    <form action="{{route('admin.etiquetas.destroy', $etiqueta)}}" method="POST">
+                                    @csrf
+                                    @method('delete')
+                                    
+                                    <button class="btn btn-danger btn-sm" type="submit">Eliminar</button>
+                                @endcan
                                 </form>
                             </td>
                         </tr>

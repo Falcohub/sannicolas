@@ -3,6 +3,10 @@
 @section('title', 'Panel de administración')
 
 @section('content_header')
+
+    @can('admin.categorias.create')
+        <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.categorias.create')}}">Agregar categoria</a> 
+    @endcan
     <h1>Lista de categorias</h1>
 @stop
 
@@ -15,10 +19,6 @@
     @endif
 
     <div class="card">
-
-        <div class="card-header">
-            <a class="btn btn-primary" href="{{route('admin.categorias.create')}}">Agregar categoria</a>
-        </div>
 
         <div class="card-body">
             <table class="table table-striped">
@@ -36,15 +36,19 @@
                             <td>{{$categoria->id}}</td>
                             <td>{{$categoria->cat_nombre}}</td>
                             <td width="10px">
-                                <a class="btn btn-primary btn-sm" href="{{route('admin.categorias.edit', $categoria)}}">Editar</a>
+                                @can('admin.categorias.edit')
+                                    <a class="btn btn-primary btn-sm" href="{{route('admin.categorias.edit', $categoria)}}">Editar</a>   
+                                @endcan
                             </td>
                             <td width="10px">
-                                <form action="{{route('admin.categorias.destroy', $categoria)}}" method="POST">
-                                    @csrf
-                                    @method('delete')
-
-                                    <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                                </form>
+                                @can('admin.categorias.destroy')
+                                    <form action="{{route('admin.categorias.destroy', $categoria)}}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        
+                                        <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                                    </form>
+                                @endcan
                             </td>
                         </tr>        
                     @endforeach
