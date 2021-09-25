@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
         //Crear carpeta en la carpeta Storage
         Storage::makeDirectory('public/posts');
 
+        // Llamar el metodo RoleSeeder 
+        $this->call(RoleSeeder::class);
+
         $this->call(UserSeeder::class);
         Categoria::factory(4)->create();
         Etiqueta::factory(8)->create();
