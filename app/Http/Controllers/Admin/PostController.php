@@ -14,22 +14,22 @@ use App\Http\Requests\PostRequest;
 
 class PostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        // Proteger solo la ruta index
+        $this->middleware('can:admin.posts.index')->only('index');
+        $this->middleware('can:admin.posts.create')->only('create', 'store');
+        $this->middleware('can:admin.posts.edit')->only('edit', 'update');
+        $this->middleware('can:admin.posts.destroy')->only('destroy');
+    }
+
     public function index()
     {
         //Vista de posts
         return view('admin.posts.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
 
@@ -41,13 +41,6 @@ class PostController extends Controller
         //Crear de posts
         return view('admin.posts.create', compact('categorias', 'etiquetas'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
     //Objeto de clase StorePostRequest para obtener las validaciones
     public function store(PostRequest $request)
@@ -73,24 +66,6 @@ class PostController extends Controller
         return redirect()->route('admin.posts.edit', $post);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //Vista de posts
-        return view('admin.posts.show', compact('post'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Post $post)
     {
         // Referencia policy
@@ -105,13 +80,6 @@ class PostController extends Controller
         return view('admin.posts.edit', compact('post', 'categorias', 'etiquetas'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(PostRequest $request, Post $post)
     {
         // Referencia policy
@@ -153,12 +121,6 @@ class PostController extends Controller
         return redirect()->route('admin.posts.edit', $post)->with('info', 'La publicación se actualizo con éxito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Post $post)
     {
         // Referencia policy

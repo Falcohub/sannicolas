@@ -8,11 +8,16 @@ use App\Models\Etiqueta;
 
 class EtiquetaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        // Proteger solo la ruta index
+        $this->middleware('can:admin.etiquetas.index')->only('index');
+        $this->middleware('can:admin.etiquetas.create')->only('create', 'store');
+        $this->middleware('can:admin.etiquetas.edit')->only('edit', 'update');
+        $this->middleware('can:admin.etiquetas.destroy')->only('destroy');
+    }
+
     public function index()
     {
         // Recuperar listado de etiquetas
@@ -22,11 +27,6 @@ class EtiquetaController extends Controller
         return view('admin.etiquetas.index', compact('etiquetas'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         // Array para obtener el color 
@@ -44,12 +44,6 @@ class EtiquetaController extends Controller
         return view('admin.etiquetas.create', compact('color'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // Validar campos
@@ -67,23 +61,6 @@ class EtiquetaController extends Controller
         return redirect()->route('admin.etiquetas.edit', compact('etiqueta'));
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Etiqueta $etiqueta)
-    {
-        return view('admin.etiquetas.show', compact('etiqueta'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Etiqueta $etiqueta)
     {
         // Array para obtener el color 
@@ -101,13 +78,6 @@ class EtiquetaController extends Controller
         return view('admin.etiquetas.edit', compact('etiqueta', 'color'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Etiqueta $etiqueta)
     {
         // Validar campos
@@ -125,12 +95,6 @@ class EtiquetaController extends Controller
         return redirect()->route('admin.etiquetas.edit', $etiqueta)->with('info', 'La etiqueta se actualizó con éxito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Etiqueta $etiqueta)
     {
         //Eliminar etiqueta

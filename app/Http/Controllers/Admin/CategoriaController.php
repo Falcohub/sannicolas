@@ -8,11 +8,16 @@ use App\Models\Categoria;
 
 class CategoriaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    public function __construct()
+    {
+        // Proteger solo la ruta index
+        $this->middleware('can:admin.categorias.index')->only('index');
+        $this->middleware('can:admin.categorias.create')->only('create', 'store');
+        $this->middleware('can:admin.categorias.edit')->only('edit', 'update');
+        $this->middleware('can:admin.categorias.destroy')->only('destroy');
+    }
+
     public function index()
     {
         $categorias = Categoria::all();
@@ -20,23 +25,12 @@ class CategoriaController extends Controller
     return view('admin.categorias.index', compact('categorias'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         return view('admin.categorias.create');
 
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         // reglas de validacion para los campos
@@ -52,35 +46,11 @@ class CategoriaController extends Controller
         return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'La categoria se creo con éxito');;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Categoria $categoria)
-    {
-        return view('admin.categorias.index', compact('categoria'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Categoria $categoria)
     {
         return view('admin.categorias.edit', compact('categoria'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Categoria $categoria)
     {
         // reglas de validacion para los campos
@@ -96,12 +66,6 @@ class CategoriaController extends Controller
         return redirect()->route('admin.categorias.edit', $categoria)->with('info', 'La categoria se actualizó con éxito');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Categoria $categoria)
     {
         // Eliminar categoria
