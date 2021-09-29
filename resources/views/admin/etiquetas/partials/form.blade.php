@@ -20,16 +20,8 @@
 
 {{-- Seleccionar color de la etiqueta  --}}
 <div class="form-group">
-    {{--ejemplo con html
-    <label for="">Color:</label>
 
-    <select name="color" id="" class="form-control">
-        <option value="red">Rojo</option>
-        <option value="green">Verde</option>
-        <option value="blue" selected>Azul</option>
-    </select> --}}
-
-    {!! Form::label('color', 'Color:') !!}
+    {!! Form::label('etq_color', 'Color:') !!}
     {!! Form::select('etq_color', $color, null, ['class' => 'form-control']) !!}
     
     {{-- error de validacion --}}
