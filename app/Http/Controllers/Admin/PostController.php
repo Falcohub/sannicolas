@@ -11,6 +11,7 @@ use App\Models\Etiqueta;
 use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Cache;
 
 class PostController extends Controller
 {
@@ -55,6 +56,9 @@ class PostController extends Controller
             // Generar um muevo registro en la tabla image y relacionarlo
             $post->imagen()->create(['img_url' => $url]);
         }
+
+        // Cada que cree un nuevo post eliminar datos de cache
+        Cache::flush();
 
         // Preguntar si se esta enviando informacion de etiquetas
         // accedemos al registro de post, accedemos a la relacion etiquetas
@@ -118,6 +122,9 @@ class PostController extends Controller
             $post->etiquetas()->sync($request->etiquetas);
         }
 
+        // Cada que cree un nuevo post eliminar datos de cache
+        Cache::flush();
+
         return redirect()->route('admin.posts.edit', $post)->with('info', 'La publicación se actualizo con éxito');
     }
 
@@ -128,6 +135,9 @@ class PostController extends Controller
 
         //Eliminar etiqueta
         $post->delete();
+
+        // Cada que cree un nuevo post eliminar datos de cache
+        Cache::flush();
 
         return redirect()->route('admin.posts.index')->with('info', 'La publicación se eliminó con éxito');
     }
