@@ -13,6 +13,12 @@ class Post extends Model
     // con la propiedad guarded evitamos los campos que se llenen por asignacion masiva
     protected $guarded = ['id', 'created_at', 'updated_at'];
 
+    // Agregar slug a la url 
+    public function getRouteKeyName()
+    {
+        return 'post_slug';
+    }
+
     //Relacion uno a muchos inversa
 
     public function user(){

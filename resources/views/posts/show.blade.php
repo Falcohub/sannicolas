@@ -1,8 +1,12 @@
 <x-app-layout> {{-- Traer plantilla principal Navbar--}}
 
+    {{-- Detalle del post --}}
     <div class="container py-8">
+
+        {{-- Titulo o nombre del post --}}
         <h1 class="text-4xl font-bold text-gray-600">{{$post->post_name}}</h1>
 
+        {{-- Extracto del post --}}
         <div class="text-lg text-gray-500 mb-2">
             {!!$post->post_extract!!}
         </div>
@@ -14,6 +18,7 @@
 
                 <figure>
 
+                    {{-- Imagen del post --}}
                     @if ($post->imagen)
                         <img class="w-full h-80 object-cover object-center" src="{{Storage::url($post->imagen->img_url)}}" alt="">
                     @else
@@ -22,6 +27,7 @@
 
                 </figure>
 
+                {{-- Cuerpo o parrafo del post --}}
                 <div class="text-base text-gray-500 mt-4">
                     {!! $post->post_body !!}
                 </div>

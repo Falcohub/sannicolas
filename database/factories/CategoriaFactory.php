@@ -22,8 +22,8 @@ class CategoriaFactory extends Factory
      */
     public function definition()
     {
-        //hola mundo como estas
-        //Hola-mundo-como.estas / esto es un slug
+        //Hola mundo
+        //Hola-mundo / esto es un slug
 
         $nombre = $this->faker->unique()->word(20);
 

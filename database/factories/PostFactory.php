@@ -24,8 +24,9 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-
+        // Generar slug 
         $nombre = $this->faker->unique()->sentence();
+        
         return [
             'post_name' => $nombre,
             'post_slug' => Str::slug($nombre),
