@@ -29,7 +29,7 @@ class PostController extends Controller
         }else {
 
             // Si no tengo almacenado nada en cache, entonces realizar la consulta en la db
-            $posts = Post::where('post_status', 2)->latest('id')->paginate(8);
+            $posts = Post::where('post_status', 2)->latest('id')->paginate(5);
 
             // Almacenar la info en cache 
             Cache::put($key, $posts);
