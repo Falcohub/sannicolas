@@ -4,7 +4,7 @@
             <div class="swiper-slide">
                 <div class="mx-auto mt-16 h-4/5 w-96 overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
                     <img class="lg:h-72 md:h-36 w-full object-cover object-center"
-                        src="https://dummyimage.com/720x400" alt="blog">
+                        src="https://images.unsplash.com/photo-1588979355313-6711a095465f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=372&q=80" alt="blog">
                     <div class="p-6 bg-gray-700 h-full">
                         <h1 class="title-font text-lg font-bold text-white mb-3">PLAN VIDA</h1>
                         <p class="leading-relaxed mb-3 text-justify text-white">Photo booth fam kinfolk cold-pressed
@@ -24,9 +24,9 @@
             <div class="swiper-slide">
                 <div class="mx-auto mt-16 h-4/5 w-96 overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
                     <img class="lg:h-72 md:h-36 w-full object-cover object-center"
-                        src="https://dummyimage.com/720x400" alt="blog">
+                        src="https://images.unsplash.com/photo-1611024847487-e26177381a3f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80" alt="blog">
                     <div class="p-6 bg-gray-700 h-full">
-                        <h1 class="title-font text-lg font-bold text-white mb-3">PLAN VIDA</h1>
+                        <h1 class="title-font text-lg font-bold text-white mb-3">PLAN RESPLANDOR</h1>
                         <p class="leading-relaxed mb-3 text-justify text-white">Photo booth fam kinfolk cold-pressed
                             sriracha leggings
                             jianbing microdosing tousled waistcoat.</p>
@@ -44,9 +44,9 @@
             <div class="swiper-slide">
                 <div class="mx-auto mt-16 h-4/5 w-96 overflow-hidden shadow-xl transform hover:-translate-y-2 transition-transform duration-500">
                     <img class="lg:h-72 md:h-36 w-full object-cover object-center"
-                        src="https://dummyimage.com/720x400" alt="blog">
+                        src="https://images.unsplash.com/photo-1611234563814-b374822165d4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=387&q=80" alt="blog">
                     <div class="p-6 bg-gray-700 h-full">
-                        <h1 class="title-font text-lg font-bold text-white mb-3">PLAN VIDA</h1>
+                        <h1 class="title-font text-lg font-bold text-white mb-3">PLAN MASCOTA</h1>
                         <p class="leading-relaxed mb-3 text-justify text-white">Photo booth fam kinfolk cold-pressed
                             sriracha leggings
                             jianbing microdosing tousled waistcoat.</p>

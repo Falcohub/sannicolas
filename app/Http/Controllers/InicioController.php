@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class InicioController extends Controller
 {
     public function index(){
 
@@ -13,5 +13,9 @@ class HomeController extends Controller
     public function nuestraEmpresa(){
 
         return view('home.nuestra-empresa');
+    }
+    public function servicios(){
+
+        return view('home.servicios');
     }
 }

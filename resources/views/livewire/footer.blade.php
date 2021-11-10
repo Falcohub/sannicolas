@@ -1,5 +1,5 @@
 <div class="items-center">
-    <footer class="transition duration-500 ease-in-out transform bg-gray-700">
+    <footer class="transition duration-500 ease-in-out transform bg-blue-900">
         <div
             class="container flex flex-col flex-wrap p-8 mx-auto md:items-center lg:items-start md:flex-row md:flex-no-wrap">
             <div class="flex-shrink-0 w-64 mx-auto text-center md:mx-0 md:text-left">
@@ -115,7 +115,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full px-8 mt-4 bg-gray-700">
+        <div class="w-full px-8 mt-4 bg-blue-900">
             <div class="container flex flex-col flex-wrap px-5 py-6 mx-auto sm:flex-row">
                 <p class="mx-auto text-sm text-center text-black sm:text-left ">© 2021 </p>
 

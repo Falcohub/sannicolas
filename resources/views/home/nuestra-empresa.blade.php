@@ -33,8 +33,8 @@
             </div>
         </div>
 
-        <div class="bg-white lg:h-screen">
-            <div class="container flex flex-wrap-reverse lg:grid grid-cols-2 gap-x-8">
+        <div class="flex items-center justify-center h-screen bg-white border-t-2">
+            <div class="container flex-wrap-reverse lg:grid grid-cols-2 gap-x-8 bg-white">
                 <div class="">
                     <img src="https://www.sannicolascasadefunerales.com/wp-content/uploads/2018/08/Acerca-de-la-empresa-Casa-de-Funerales-San-Nicolas.jpg"
                         alt="" class="">

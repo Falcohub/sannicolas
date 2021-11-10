@@ -10,12 +10,14 @@
             <div class="swiper-slide">
                 <img class="opacity-70 w-full object-cover" src="https://images.unsplash.com/photo-1575580450516-2028255d6911?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
             </div>
+            <div class="swiper-slide">
+            <img class="opacity-70 w-full h-full object-cover" src="\storage\img\prueba2.jpeg" alt="">
+            </div>
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
-
 
     <!-- Initialize Swiper -->
     <script>
@@ -24,7 +26,7 @@
             centeredSlides: true,
             loop: true,
             autoplay: {
-                delay: 5000,
+                delay: 6000,
                 disableOnInteraction: false,
             },
             pagination: {

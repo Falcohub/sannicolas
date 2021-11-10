@@ -2,13 +2,15 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InicioController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', [InicioController::class, 'index'])->name('home.index');
 
-Route::get('/nuestra-empresa', [HomeController::class, 'nuestraEmpresa'])->name('home.nuestra-empresa');
+Route::get('/nuestra-empresa', [InicioController::class, 'nuestraEmpresa'])->name('home.nuestra-empresa');
 
-Route::get('/listaposts', [PostController::class, 'index'])->name('posts.index');
+Route::get('/nuestros-servicios', [InicioController::class, 'servicios'])->name('home.servicios');
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 //Ruta para acceder al post
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');

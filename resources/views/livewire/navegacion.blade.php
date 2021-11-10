@@ -34,6 +34,11 @@
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
                         <a href="{{route('home.nuestra-empresa')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestra empresa</a>
+                        <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestros servicios</a>
+                        <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Sedes</a>
+                        <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestros proyectos</a>
+                        <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Labor social</a>
+                        <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Contactanos</a>
                         {{-- @foreach ($categorias as $categoria)
                             <a href="{{route('posts.categoria', $categoria)}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">{{$categoria->cat_nombre}}</a>
                         @endforeach --}}
