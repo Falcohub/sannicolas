@@ -2,8 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\InicioController;
 
-Route::get('/', [PostController::class, 'index'])->name('posts.index');
+// Ruta de pagina de inicio
+Route::get('/', [InicioController::class, 'index'])->name('home.index');
+
+//Ruta para mostrar posts publicados
+// Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
 //Ruta para acceder al post
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
