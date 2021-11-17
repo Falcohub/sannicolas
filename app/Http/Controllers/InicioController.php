@@ -14,4 +14,8 @@ class InicioController extends Controller
     {
         return view('home.empresa');
     }
+    public function servicios()
+    {
+        return view('home.servicios');
+    }
 }

@@ -10,6 +10,9 @@ Route::get('/', [InicioController::class, 'index'])->name('home.index');
 // Ruta nuestra empresa
 Route::get('/nuestra-empresa', [InicioController::class, 'empresa'])->name('home.empresa');
 
+// Ruta nuestros servicios
+Route::get('/nuestros-servicios', [InicioController::class, 'servicios'])->name('home.servicios');
+
 //Ruta para mostrar posts publicados
 // Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
