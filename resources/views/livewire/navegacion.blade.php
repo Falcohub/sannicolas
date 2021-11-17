@@ -33,8 +33,8 @@
                 <div class="hidden sm:block sm:ml-6">
                     <div class="flex space-x-4">
                         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-                        <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Inicio</a>
-                        <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestra empresa</a>
+                        <a href="/" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Inicio</a>
+                        <a href="{{route('home.empresa')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestra empresa</a>
                         <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestros servicios</a>
                         <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Sedes</a>
                         <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestros proyectos</a>

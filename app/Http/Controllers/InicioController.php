@@ -10,4 +10,8 @@ class InicioController extends Controller
     {
         return view('home.index');
     }
+    public function empresa()
+    {
+        return view('home.empresa');
+    }
 }

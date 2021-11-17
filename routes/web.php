@@ -7,6 +7,9 @@ use App\Http\Controllers\InicioController;
 // Ruta de pagina de inicio
 Route::get('/', [InicioController::class, 'index'])->name('home.index');
 
+// Ruta nuestra empresa
+Route::get('/nuestra-empresa', [InicioController::class, 'empresa'])->name('home.empresa');
+
 //Ruta para mostrar posts publicados
 // Route::get('/', [PostController::class, 'index'])->name('posts.index');
 
