@@ -1,17 +1,14 @@
-<div class="h-screen bg-black">
+<div class="h-screen bg-black mt-16">
         <div class="swiper mySwiper h-full">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img class="opacity-70 w-full object-contain" src="https://images.unsplash.com/photo-1523463695703-81670ed104a2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=871&q=80" alt="">
+                    <img class="opacity-90 object-cover object-center" src="\storage\img\Mesa de trabajo 2.png" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img class="opacity-70 w-full object-cover" src="https://images.unsplash.com/photo-1574808146141-fbd663cfb174?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="">
+                    <img class="opacity-90 object-cover object-center" src="\storage\img\Mesa de trabajo 1.png" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img class="opacity-70 w-full object-cover" src="https://images.unsplash.com/photo-1575580450516-2028255d6911?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" alt="">
-                </div>
-                <div class="swiper-slide">
-                <img class="opacity-70 w-full h-full object-cover" src="\storage\img\prueba2.jpeg" alt="">
+                    <img class="opacity-90 object-cover object-center" src="\storage\img\Mesa de trabajo 3.png" alt="">
                 </div>
             </div>
             <div class="swiper-button-next"></div>

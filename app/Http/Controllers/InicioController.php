@@ -18,4 +18,12 @@ class InicioController extends Controller
     {
         return view('home.servicios');
     }
+    public function sedes()
+    {
+        return view('home.sedes');
+    }
+    public function contacto()
+    {
+        return view('home.contacto');
+    }
 }

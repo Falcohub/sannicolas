@@ -1,7 +1,7 @@
 <x-app-layout> {{-- Traer plantilla principal Navbar--}}
 
     {{-- Detalle del post --}}
-    <div class="container py-8">
+    <div class="container mt-16 py-8">
 
         {{-- Titulo o nombre del post --}}
         <h1 class="text-4xl font-bold text-gray-600">{{$post->post_name}}</h1>

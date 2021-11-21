@@ -25,8 +25,8 @@
                 
                 {{-- logotipo --}}
                 <a href="/" class="flex-shrink-0 flex items-center">
-                    <img class="block lg:hidden h-8 w-auto" src="https://www.sannicolascasadefunerales.com/wp-content/uploads/2018/07/Logo-Ultimo-Casa-de-Funerales-San-Nicolas-200px.png" alt="Workflow">
-                    <img class="hidden lg:block h-8 w-auto" src="https://www.sannicolascasadefunerales.com/wp-content/uploads/2018/07/Logo-Ultimo-Casa-de-Funerales-San-Nicolas-200px.png" alt="Workflow">
+                    <img class="block lg:hidden h-10 w-auto" src="https://www.sannicolascasadefunerales.com/wp-content/uploads/2018/07/Logo-Ultimo-Casa-de-Funerales-San-Nicolas-200px.png" alt="Logo San Nicolas">
+                    <img class="hidden lg:block h-10 w-auto" src="https://www.sannicolascasadefunerales.com/wp-content/uploads/2018/07/Logo-Ultimo-Casa-de-Funerales-San-Nicolas-200px.png" alt="Logo San Nicolas">
                 </a>
                 
                 {{-- menu navegacion --}}
@@ -36,10 +36,10 @@
                         <a href="/" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Inicio</a>
                         <a href="{{route('home.empresa')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestra empresa</a>
                         <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestros servicios</a>
-                        <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Sedes</a>
-                        <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Nuestros proyectos</a>
-                        <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Labor social</a>
-                        <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Contactanos</a>
+                        <a href="{{route('home.sedes')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Sedes</a>
+                        <a href="{{route('posts.index')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Actualidad</a>
+                        {{-- <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Labor social</a> --}}
+                        <a href="{{route('home.contacto')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">Contactanos</a>
                         {{-- @foreach ($categorias as $categoria)
                             <a href="{{route('posts.categoria', $categoria)}}" class="text-blue-800 hover:bg-blue-800 hover:text-white px-3 py-2 rounded-md text-base font-semibold">{{$categoria->cat_nombre}}</a>
                         @endforeach --}}
@@ -113,13 +113,13 @@
             {{-- @foreach ($categorias as $categoria)
                 <a href="{{route('posts.categoria', $categoria)}}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">{{$categoria->cat_nombre}}</a>
             @endforeach --}}
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestra empresa</a>
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestros servicios</a>
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sedes</a>
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestros proyectos</a>
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Labor social</a>
-            <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contactanos</a>
+            <a href="/" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Inicio</a>
+            <a href="{{route('home.empresa')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestra empresa</a>
+            <a href="{{route('home.servicios')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Nuestros servicios</a>
+            <a href="{{route('home.sedes')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Sedes</a>
+            <a href="{{route('posts.index')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Actualidad</a>
+            {{-- <a href="" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Labor social</a> --}}
+            <a href="{{route('home.contacto')}}" class="text-blue-800 hover:bg-blue-800 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contactanos</a>
         </div>
     </div>
 </nav>

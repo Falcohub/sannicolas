@@ -13,8 +13,14 @@ Route::get('/nuestra-empresa', [InicioController::class, 'empresa'])->name('home
 // Ruta nuestros servicios
 Route::get('/nuestros-servicios', [InicioController::class, 'servicios'])->name('home.servicios');
 
+// Ruta nuestros sedes
+Route::get('/sedes', [InicioController::class, 'sedes'])->name('home.sedes');
+
+// Ruta pagina contacto
+Route::get('/contactanos', [InicioController::class, 'contacto'])->name('home.contacto');
+
 //Ruta para mostrar posts publicados
-// Route::get('/', [PostController::class, 'index'])->name('posts.index');
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 //Ruta para acceder al post
 Route::get('posts/{post}', [PostController::class, 'show'])->name('posts.show');
